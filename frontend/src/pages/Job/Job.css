@@ -1,0 +1,38 @@
+.job-container .page-header ~ .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.job-container aside.card {
+    background: var(--color-card-background);
+    color: var(--color-card-title);
+    border: 1px solid #E1E3E6;
+    border-radius: .313rem;
+    width: 22rem;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.job-container aside p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    padding: 20px;
+}
+
+.job-container main .input-wrapper {
+    width: 100%;
+}
+
+.job-container main {
+    flex: 0.9;
+}
+
+.job-container .button-group {
+    justify-content: center;
+}
+
+.job-container .button.gray  {
+    padding: 10px;
+}

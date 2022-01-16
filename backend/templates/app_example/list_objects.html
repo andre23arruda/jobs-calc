@@ -1,0 +1,39 @@
+{% extends '../partials/__base.html' %}
+{% load static %}
+
+{% block page_title %} {{ page_title }} {% endblock page_title %}
+
+{% block content %}
+    {% include '../partials/__navbar.html' %}
+    <main class="container my-5">
+        <div class="starter-template text-center py-5 px-3">
+            {% include '../partials/__messages.html' %}
+
+            <div class="px-3 py-1 mx-auto text-center">
+                <h1 class="display-4">Objects</h1>
+                <p class="lead">Listing registered objects.</p>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                {% for book in book_list %}
+                    <div class="col">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h4 class="my-0 fw-normal">Book {{ book.id }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title">{{ book.title }}</h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>{{ book.author }}</li>
+                                    <li>{{ book.created_at|date:'d/m/y' }}</li>
+                                </ul>
+                                <a href="{% url 'detail_object' pk=book.id %}" class="w-100 btn btn-lg btn-primary">See info</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </main>
+{% endblock content %}

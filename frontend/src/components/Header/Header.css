@@ -1,0 +1,16 @@
+.page-header.inner {
+    margin-bottom: 4rem;
+}
+
+.page-header.inner .container {
+    align-items: center;
+}
+
+.page-header.inner .back {
+    transition: 0.2s;
+}
+
+.page-header.inner .back:hover {
+    transform: scale(1.01);
+    filter: brightness(0.8);
+}

@@ -1,0 +1,23 @@
+{% extends '../partials/__base.html' %}
+{% load static %}
+
+{% block page_title %} {{ page_title }} {% endblock page_title %}
+
+{% block content %}
+    {% include '../partials/__navbar.html' %}
+    <main class="container my-5">
+        <div class="starter-template text-left py-5 px-3">
+
+            <div class="px-3 py-1 mx-auto text-left">
+                <h1 class="display-4">{{ page_title }}</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <p>Are you sure you want to delete "{{ object }}"?</p>
+                    <input type="submit" class="btn btn-lg btn-danger" value="Confirm">
+                    <a class="btn btn-lg btn-primary" href="{% url 'edit_object' pk=object.id %}">Go back</a>
+                </form>
+            </div>
+
+        </div>
+    </main>
+{% endblock content %}

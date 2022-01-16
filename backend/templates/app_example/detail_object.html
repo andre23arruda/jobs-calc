@@ -1,0 +1,22 @@
+{% extends '../partials/__base.html' %}
+{% load static %}
+
+{% block page_title %} {{ page_title }} {% endblock page_title %}
+
+{% block content %}
+    {% include '../partials/__navbar.html' %}
+    <main class="container my-5">
+        <div class="starter-template text-left py-5 px-3">
+
+            <div class="px-3 py-1 mx-auto text-left">
+                <h1 class="display-4">{{ object.title }}</h1>
+                <p class="lead">ID: {{ object.id }}</p>
+                <p class="lead">Registered at: {{ object.created_at }}</p>
+                <p class="lead">Author: {{ object.author }}</p>
+            </div>
+            <a class="btn btn-lg btn-primary" href="{% url 'edit_object' pk=object.id %}">Edit</a>
+            <a class="btn btn-lg btn-danger" href="{% url 'delete_object' pk=object.id %}">Delete</a>
+
+        </div>
+    </main>
+{% endblock content %}
