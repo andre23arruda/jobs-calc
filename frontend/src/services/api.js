@@ -1,7 +1,4 @@
-// Altere para sua ROTA_API
-const ROTA_API = `127.0.0.1:8000`
-
-const baseUrl = `http://${ ROTA_API }/api/`
+const baseUrl = process.env.REACT_APP_API_URL
 
 async function postApi(route, formData, token='') {
     let response_status = 400
