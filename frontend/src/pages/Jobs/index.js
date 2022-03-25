@@ -38,7 +38,7 @@ function Jobs() {
     useEffect(() => {
         getApi(`profiles/`, token)
         .then(({data, response_status}) => {
-            if (200 <= response_status < 300)
+            if (200 < response_status < 300)
                 setProfile(data[0])
             else throw 'Sem credenciais'
         })
@@ -67,7 +67,7 @@ function Jobs() {
         setJobs(newJobs.filter(job => job.id !== id_to_delete))
         getApi(`profiles/`, token)
         .then(({data, response_status}) => {
-            if (200 <= response_status < 300)
+            if (200 < response_status < 300)
                 setProfile(data[0])
         })
     }

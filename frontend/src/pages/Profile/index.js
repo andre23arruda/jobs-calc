@@ -32,7 +32,7 @@ function Profile() {
     useEffect(() => {
         getApi(`profiles/`, token)
         .then(({data, response_status}) => {
-            if (200 <= response_status < 300) {
+            if (200 < response_status < 300) {
                 const profile = data[0]
                 setProfile_id(profile.id)
                 setMonthly_budget(profile.monthly_budget)
@@ -65,7 +65,7 @@ function Profile() {
 
         putApi(`profiles/${ profile_id }/`, data, token)
         .then(({data, response_status}) => {
-            if (200 <= response_status < 300) {
+            if (200 < response_status < 300) {
                 setProfileName(data.name)
                 setProfileAvatar(data.avatar)
                 setValue_hour(data.value_hour)

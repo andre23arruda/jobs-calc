@@ -46,7 +46,7 @@ function Job() {
 
         postApi(`jobs/`, data, token)
         .then(({response_status}) => {
-            if (200 <= response_status < 300)
+            if (200 < response_status < 300)
                 history.push('/jobs')
         })
     }

@@ -13,7 +13,7 @@ function Modal({ job_id, showModal, setShowModal, updateJobs, token }) {
         event.preventDefault()
         deleteApi(`jobs/${ job_id }/`, token)
         .then(({response_status}) => {
-            if (200 <= response_status < 300)
+            if (200 < response_status < 300)
                 updateJobs()
                 setShowModal(false)
         })
