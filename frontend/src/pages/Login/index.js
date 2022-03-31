@@ -26,7 +26,7 @@ function Login() {
         }
         postApi(`login/`, data)
         .then(({data, response_status}) => {
-            console.log(data)
+            // console.log(data)
             if (200 < response_status < 300) {
                 localStorage.setItem('token', data.token)
                 history.push('/jobs')
