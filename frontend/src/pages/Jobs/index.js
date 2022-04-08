@@ -38,13 +38,13 @@ function Jobs() {
     useEffect(() => {
         getApi(`profiles/`, token)
         .then(({data, response_status}) => {
-            if (200 < response_status < 300)
-                setProfile(data[0])
-            // else throw 'Sem credenciais'
-            else {
+            if (response_status >= 400) {
+                localStorage.setItem('token', '')
                 history.push('/')
-                alert('Sessão expirada!')
+                // alert('Sessão expirada!')
+                return
             }
+            setProfile(data[0])
         })
         .catch(error => {
             history.push('/')
