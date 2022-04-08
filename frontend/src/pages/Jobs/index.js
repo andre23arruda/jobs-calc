@@ -16,7 +16,7 @@ import logoImg from '../../assets/images/logo.svg'
 
 
 function Jobs() {
-    title('Dashboard')
+    title('Jobs')
     const history = useHistory()
     const token = localStorage.getItem('token')
 
@@ -43,18 +43,21 @@ function Jobs() {
             else throw 'Sem credenciais'
         })
         .catch(error => {
-            history.push('/')
             alert('Sessão expirada!')
+            history.push('/')
         })
 
-        getApi(`jobs/`, token)
-        .then(({data, response_status}) => {
-            setJobs(data)
-        })
-        .catch(error => {
-            history.push('/')
-            alert('Sessão expirada!')
-        })
+        if (profile) {
+            getApi(`jobs/`, token)
+            .then(({data, response_status}) => {
+                setJobs(data)
+            })
+            .catch(error => {
+                alert('Sessão expirada!')
+                history.push('/')
+            })
+        }
+
     }, [])
 
     function logout() {
@@ -157,7 +160,7 @@ function Jobs() {
                         { jobs.map(job => (
                             <JobCard
                                 key={ job.id }
-                                {...job }
+                                { ...job }
                                 setShowModal={ setShowModal }
                                 setId_to_delete={ setId_to_delete }
                             />

@@ -20,9 +20,6 @@ function Routes() {
                 <Route path="/edit-job/:job_id" exact component={ EditJob } />
                 <Route path="/profile" exact component={ Profile } />
                 <Route component={ Page404 } />
-                {/*
-                <Route path="/job-edit" exact component={ JobEdit } />
-                */}
             </Switch>
         </BrowserRouter>
     )
