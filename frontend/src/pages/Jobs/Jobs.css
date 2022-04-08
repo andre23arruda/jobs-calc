@@ -78,6 +78,10 @@
     text-decoration: none;
 }
 
+.jobs-container #avatar-profile .links span {
+    margin-left: 10px;
+}
+
 /*
  * summary
 /* -------------------------------------------------- */

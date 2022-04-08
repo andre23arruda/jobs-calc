@@ -54,10 +54,10 @@ schema_view = get_schema_view(
 )
 
 api_urlpatterns = [
-    path('api/', include(router.urls)),
-    path('api/signup/', UserCreateView.as_view()),
-    path('api/login/', obtain_jwt_token, name='login-jwt'),
-    path('api/refresh-token/', refresh_jwt_token),
-    path('api/doc/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('api/doc/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('api/jobs-calc/', include(router.urls)),
+    path('api/jobs-calc/signup/', UserCreateView.as_view()),
+    path('api/jobs-calc/login/', obtain_jwt_token, name='login-jwt'),
+    path('api/jobs-calc/refresh-token/', refresh_jwt_token),
+    path('api/jobs-calc/doc/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api/jobs-calc/doc/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

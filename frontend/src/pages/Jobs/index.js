@@ -40,24 +40,21 @@ function Jobs() {
         .then(({data, response_status}) => {
             if (response_status >= 400) {
                 localStorage.setItem('token', '')
-                history.push('/')
                 alert('Sessão expirada!')
+                history.push('/')
                 return
             }
-            setProfile(data[0])
-        })
-        .catch(error => {
-            history.push('/')
-            alert('Sessão expirada!')
-        })
-
-        if (profile.id !== 0) {
+            const currentProfile = data[0]
+            setProfile(currentProfile)
             getApi(`jobs/`, token)
             .then(({data, response_status}) => {
                 setJobs(data)
             })
-        }
-
+        })
+        .catch(error => {
+            alert('Sessão expirada!')
+            history.push('/')
+        })
     }, [])
 
     function logout() {
