@@ -51,7 +51,7 @@ function Jobs() {
             alert('Sessão expirada!')
         })
 
-        if (profile) {
+        if (profile.id !== 0) {
             getApi(`jobs/`, token)
             .then(({data, response_status}) => {
                 setJobs(data)
