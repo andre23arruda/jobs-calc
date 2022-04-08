@@ -45,6 +45,7 @@ function Login() {
 
                     <label>Usuário</label>
                     <input
+                        autoComplete="username"
                         type="text"
                         placeholder="usuario.123"
                         onChange={ e => setUsername(e.target.value) }
@@ -52,6 +53,7 @@ function Login() {
 
                     <label>Senha</label>
                     <input
+                        autoComplete="current-password"
                         type="password"
                         placeholder="********"
                         onChange={ e => setPassword(e.target.value) }

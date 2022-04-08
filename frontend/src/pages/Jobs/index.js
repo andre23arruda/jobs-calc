@@ -40,7 +40,11 @@ function Jobs() {
         .then(({data, response_status}) => {
             if (200 < response_status < 300)
                 setProfile(data[0])
-            else throw 'Sem credenciais'
+            // else throw 'Sem credenciais'
+            else {
+                history.push('/')
+                alert('Sessão expirada!')
+            }
         })
         .catch(error => {
             history.push('/')
@@ -52,10 +56,10 @@ function Jobs() {
             .then(({data, response_status}) => {
                 setJobs(data)
             })
-            .catch(error => {
-                history.push('/')
-                alert('Sessão expirada!')
-            })
+            // .catch(error => {
+            //     history.push('/')
+            //     alert('Sessão expirada!')
+            // })
         }
 
     }, [])
