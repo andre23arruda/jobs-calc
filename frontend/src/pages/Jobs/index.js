@@ -43,8 +43,8 @@ function Jobs() {
             else throw 'Sem credenciais'
         })
         .catch(error => {
-            alert('Sessão expirada!')
             history.push('/')
+            alert('Sessão expirada!')
         })
 
         if (profile) {
@@ -53,8 +53,8 @@ function Jobs() {
                 setJobs(data)
             })
             .catch(error => {
-                alert('Sessão expirada!')
                 history.push('/')
+                alert('Sessão expirada!')
             })
         }
 
