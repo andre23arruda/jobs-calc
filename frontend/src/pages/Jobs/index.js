@@ -41,7 +41,7 @@ function Jobs() {
             if (response_status >= 400) {
                 localStorage.setItem('token', '')
                 history.push('/')
-                // alert('Sessão expirada!')
+                alert('Sessão expirada!')
                 return
             }
             setProfile(data[0])
@@ -56,10 +56,6 @@ function Jobs() {
             .then(({data, response_status}) => {
                 setJobs(data)
             })
-            // .catch(error => {
-            //     history.push('/')
-            //     alert('Sessão expirada!')
-            // })
         }
 
     }, [])
